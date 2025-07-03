@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "eskenazi_apps",
-    "slug": "eskenazi_apps",
+    "name": "Eskenazi Apps",
+    "slug": "Eskenazi Apps",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
