@@ -13,7 +13,6 @@ const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true ) => {
             const result = await fetchFunction();
 
             setData(result);
-            console.log(result);
         } catch (error) {
             setError(error instanceof Error ? error : new Error('404 not found!'));
         } finally {

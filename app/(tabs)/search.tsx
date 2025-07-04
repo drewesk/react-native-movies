@@ -21,20 +21,19 @@ const Search = () => {
   }), false);
 
   useEffect(() => {
-    const func = async () => {
+    const timeoutID = setTimeout(async () => {
       if (searchQuery.trim()){
         await loadMovies();
       } else {
         reset()
       }
-    }
+    }, 200)
 
-    func();
+    return () => clearTimeout(timeoutID)
   }, [searchQuery]) 
 
   const handleSearch = (text: string) => {
     setSearchQuery(text);
-    console.log(text);
   }
   
   return (
@@ -93,6 +92,18 @@ const Search = () => {
                 </Text>
               ) }
             </>
+          }
+          ListEmptyComponent={
+            !loading && !error ? (
+              <View className="mt-10 px-5">
+                <Text className="text-center text-gray-500">
+                  {
+                  searchQuery.trim() ? 'Out of luck, no movies found' 
+                  : 'Search Now You Peasant!'
+                  }
+                </Text>
+              </View>
+            ) : null
           }
         />
     </View>
