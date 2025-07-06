@@ -51,7 +51,7 @@ export default function Index() {
         
         {moviesLoading || trendingLoading ? (
           <ActivityIndicator
-            size="Large"
+            size="large"
             color="#0000FF"
             className='mt-10 self-center'
           />
@@ -63,10 +63,29 @@ export default function Index() {
             onPress={() => router.push("/search")}
             placeholder="Search for a movie"
           />
-
-          
+    
           <>
-            <Text className="text-lg text-white font-bold mt-5 mb3">Latest Movies</Text>
+          {trendingMovies &&(
+            <>
+              <Text className="text-lg text-white font-bold mb-3">Trending</Text>
+            
+                      <FlatList
+                      className="mb mt-3" 
+                      data={trendingMovies}
+                      renderItem={({
+                       item, index
+                      }) => (
+                       <Text className="text-white text-sm">{item.title}</Text>
+                      )} 
+                      keyExtractor={(item) => item.movie_id.toString()}
+                     />
+                     </>
+          )}
+
+
+
+
+            <Text className="text-lg text-white font-bold mt-5 mb3">Latest</Text>
             <FlatList
               data={movies}
               renderItem={({item})=> (
