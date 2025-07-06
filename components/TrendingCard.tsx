@@ -1,3 +1,4 @@
+import MaskedView from '@react-native-masked-view/masked-view';
 import { Link } from "expo-router";
 import { Image, Text, TouchableOpacity } from "react-native";
 
@@ -21,6 +22,12 @@ const TrendingCard = ({
         >
           {title}
         </Text>
+        <MaskedView
+            maskElement={
+                <Text className='font-bold text-white text-6xl'>{index + 1}</Text>    
+            }
+        ></MaskedView>
+        
       </TouchableOpacity>
     </Link>
   );

@@ -27,14 +27,6 @@ export default function Index() {
     query: ''
   }))
 
-  // useEffect(() => {
-  //   if (movies) {
-  //     movies.forEach(movie => {
-  //       console.log(movie.title);
-  //     });
-  //   }
-  // }, [movies])
-
   return (
 
     <View className="flex-1 bg-primary">
@@ -65,9 +57,9 @@ export default function Index() {
             placeholder="Search for a movie"
           />
     
-          <>
+
           {trendingMovies &&(
-            <>
+            <View className="mt-10">
               <Text className="text-lg text-white font-bold mb-3">Trending</Text>
             
                       <FlatList
@@ -85,11 +77,11 @@ export default function Index() {
                   ItemSeparatorComponent={() => <View className="w-4" />}
 
                      />
-                     </>
+                   </View>
+    
           )}
-
-
-
+          
+          <>
 
             <Text className="text-lg text-white font-bold mt-5 mb3">Latest</Text>
             <FlatList
